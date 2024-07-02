@@ -1,0 +1,27 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace HotelManagement.Models
+{
+    public class Seller
+    {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set;}
+
+     [Column(TypeName = "varchar(30)")]
+    public required string Name { get; set; }
+
+    [Column(TypeName = "varchar(20)")]
+    public required string Email { get; set; }
+
+    [Column(TypeName = "varchar(30)")]
+    public required string Password { get; set; }
+
+    [ForeignKey("Hotel")]
+    [Column(TypeName = "INT")]
+    public int HotelId { get;}
+
+    public required Hotel Hotel { get; set; }
+    }
+}
