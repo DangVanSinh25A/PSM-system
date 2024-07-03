@@ -5,13 +5,13 @@
 namespace HotelManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialCreates : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Hotel",
+                name: "Hotels",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,11 +24,11 @@ namespace HotelManagement.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hotel", x => x.Id);
+                    table.PrimaryKey("PK_Hotels", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Seller",
+                name: "Sellers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,22 +36,24 @@ namespace HotelManagement.Migrations
                     Name = table.Column<string>(type: "varchar(30)", nullable: false),
                     Email = table.Column<string>(type: "varchar(20)", nullable: false),
                     Password = table.Column<string>(type: "varchar(30)", nullable: false),
+                    Role = table.Column<string>(type: "varchar(6)", nullable: false),
+                    Permission = table.Column<int>(type: "INT", nullable: false),
                     HotelId = table.Column<int>(type: "INT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Seller", x => x.Id);
+                    table.PrimaryKey("PK_Sellers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Seller_Hotel_HotelId",
+                        name: "FK_Sellers_Hotels_HotelId",
                         column: x => x.HotelId,
-                        principalTable: "Hotel",
+                        principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Seller_HotelId",
-                table: "Seller",
+                name: "IX_Sellers_HotelId",
+                table: "Sellers",
                 column: "HotelId");
         }
 
@@ -59,10 +61,10 @@ namespace HotelManagement.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Seller");
+                name: "Sellers");
 
             migrationBuilder.DropTable(
-                name: "Hotel");
+                name: "Hotels");
         }
     }
 }

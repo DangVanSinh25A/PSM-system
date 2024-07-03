@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240702012747_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240702090807_InitialCreates")]
+    partial class InitialCreates
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,7 @@ namespace HotelManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotel");
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>
@@ -80,11 +80,18 @@ namespace HotelManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
+                    b.Property<int>("Permission")
+                        .HasColumnType("INT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("varchar(6)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Seller");
+                    b.ToTable("Sellers");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>

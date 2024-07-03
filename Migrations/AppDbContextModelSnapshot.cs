@@ -51,7 +51,7 @@ namespace HotelManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hotel");
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>
@@ -77,11 +77,18 @@ namespace HotelManagement.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(30)");
 
+                    b.Property<int>("Permission")
+                        .HasColumnType("INT");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("varchar(6)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("HotelId");
 
-                    b.ToTable("Seller");
+                    b.ToTable("Sellers");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>

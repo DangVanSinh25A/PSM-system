@@ -9,7 +9,7 @@ namespace HotelManagement.Models
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set;}
 
-     [Column(TypeName = "varchar(20)")]
+    [Column(TypeName = "varchar(20)")]
     public required string Name { get; set; }
 
     [Column(TypeName = "varchar(30)")]
@@ -18,10 +18,10 @@ namespace HotelManagement.Models
     [Column(TypeName = "varchar(12)")]
     public required string Hotline { get; set; }
 
-     [Column(TypeName = "varchar(50)")]
+    [Column(TypeName = "varchar(50)")]
     public required string Website { get; set; }
 
-     [Column(TypeName = "varchar(50)")]
+    [Column(TypeName = "varchar(50)")]
     public required string Address { get; set; }
     }
 }

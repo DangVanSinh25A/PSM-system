@@ -18,10 +18,16 @@ namespace HotelManagement.Models
     [Column(TypeName = "varchar(30)")]
     public required string Password { get; set; }
 
+    [Column(TypeName = "varchar(6)")]
+    public required string Role { get; set; }
+
+    [Column(TypeName = "INT")]
+    public required int Permission { get; set; }
+
     [ForeignKey("Hotel")]
     [Column(TypeName = "INT")]
-    public int HotelId { get;}
+    public int HotelId { get; set;}
 
-    public required Hotel Hotel { get; set; }
+    public Hotel? Hotel { get; set; }
     }
 }
