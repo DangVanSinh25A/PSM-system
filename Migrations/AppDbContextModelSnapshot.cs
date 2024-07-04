@@ -54,6 +54,66 @@ namespace HotelManagement.Migrations
                     b.ToTable("Hotels");
                 });
 
+            modelBuilder.Entity("HotelManagement.Models.Room", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(4)");
+
+                    b.Property<int>("RoomTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomTypeId");
+
+                    b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.RoomType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("INT");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)");
+
+                    b.Property<int>("NumberOfPeople")
+                        .HasColumnType("INT");
+
+                    b.Property<int>("NumberOfRoom")
+                        .HasColumnType("INT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HotelId");
+
+                    b.ToTable("RoomTypes");
+                });
+
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>
                 {
                     b.Property<int>("Id")
@@ -67,7 +127,7 @@ namespace HotelManagement.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<int>("HotelId")
-                        .HasColumnType("INT");
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -89,6 +149,28 @@ namespace HotelManagement.Migrations
                     b.HasIndex("HotelId");
 
                     b.ToTable("Sellers");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.Room", b =>
+                {
+                    b.HasOne("HotelManagement.Models.RoomType", "RoomType")
+                        .WithMany()
+                        .HasForeignKey("RoomTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.RoomType", b =>
+                {
+                    b.HasOne("HotelManagement.Models.Hotel", "Hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Seller", b =>

@@ -25,7 +25,6 @@ namespace HotelManagement.Models
     public required int Permission { get; set; }
 
     [ForeignKey("Hotel")]
-    [Column(TypeName = "INT")]
     public int HotelId { get; set;}
 
     public Hotel? Hotel { get; set; }
