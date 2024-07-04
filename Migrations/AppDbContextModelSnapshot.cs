@@ -319,6 +319,33 @@ namespace HotelManagement.Migrations
                     b.ToTable("Sellers");
                 });
 
+            modelBuilder.Entity("HotelManagement.Models.SpecialRatePlan", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DayEnd")
+                        .HasColumnType("DATE");
+
+                    b.Property<DateTime>("Daystart")
+                        .HasColumnType("DATE");
+
+                    b.Property<int>("RatePlanId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SpecialPrice")
+                        .HasColumnType("INT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RatePlanId");
+
+                    b.ToTable("SpecialRatePlans");
+                });
+
             modelBuilder.Entity("HotelManagement.Models.RatePlan", b =>
                 {
                     b.HasOne("HotelManagement.Models.Additional", "Additional")
@@ -412,6 +439,17 @@ namespace HotelManagement.Migrations
                         .IsRequired();
 
                     b.Navigation("Hotel");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.SpecialRatePlan", b =>
+                {
+                    b.HasOne("HotelManagement.Models.RatePlan", "RatePlan")
+                        .WithMany()
+                        .HasForeignKey("RatePlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RatePlan");
                 });
 #pragma warning restore 612, 618
         }

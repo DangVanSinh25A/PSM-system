@@ -14,6 +14,7 @@ namespace HotelManagement.Database
         public DbSet<CancelPolicy> CancelPolicys { get; set; }
         public DbSet<Additional> Additionals { get; set; }
         public DbSet<RatePlan> RatePlans { get; set; }
+        public DbSet<SpecialRatePlan> SpecialRatePlans { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -37,10 +38,11 @@ namespace HotelManagement.Database
                 .WithMany()
                 .HasForeignKey(s => s.RoomTypeId);
 
-            // modelBuilder.Entity<RoomSale>()
-            //     .HasOne(s => s.RatePlan)
-            //     .WithMany()
-            //     .HasForeignKey(s => s.RatePlanId);
+            modelBuilder.Entity<RatePlan>()
+                .HasOne(s => s.RoomType)
+                .WithMany()
+                .HasForeignKey(s => s.RoomTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<RatePlan>()
                 .HasOne(s => s.Hotel)

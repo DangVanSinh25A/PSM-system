@@ -233,6 +233,28 @@ namespace HotelManagement.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "SpecialRatePlans",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RatePlanId = table.Column<int>(type: "int", nullable: false),
+                    Daystart = table.Column<DateTime>(type: "DATE", nullable: false),
+                    DayEnd = table.Column<DateTime>(type: "DATE", nullable: false),
+                    SpecialPrice = table.Column<int>(type: "INT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SpecialRatePlans", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SpecialRatePlans_RatePlans_RatePlanId",
+                        column: x => x.RatePlanId,
+                        principalTable: "RatePlans",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_RatePlans_AdditionalId",
                 table: "RatePlans",
@@ -282,6 +304,11 @@ namespace HotelManagement.Migrations
                 name: "IX_Sellers_HotelId",
                 table: "Sellers",
                 column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SpecialRatePlans_RatePlanId",
+                table: "SpecialRatePlans",
+                column: "RatePlanId");
         }
 
         /// <inheritdoc />
@@ -295,6 +322,9 @@ namespace HotelManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sellers");
+
+            migrationBuilder.DropTable(
+                name: "SpecialRatePlans");
 
             migrationBuilder.DropTable(
                 name: "RatePlans");

@@ -9,7 +9,7 @@ namespace HotelManagement.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set;}
 
-         [ForeignKey("RatePlan")]
+        [ForeignKey("RatePlan")]
         public int RatePlanId {get; set;}
 
         [Column(TypeName = "DATE")]
