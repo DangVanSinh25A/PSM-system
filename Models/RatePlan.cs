@@ -12,8 +12,8 @@ namespace HotelManagement.Models
         [Column(TypeName = "varchar(20)")]
         public required string Name { get; set; }
 
-        [Column(TypeName = "DECIMAL(18, 2)")]
-        public required decimal Price { get; set; }
+        [Column(TypeName = "INT")]
+        public required int Price { get; set; }
 
         [Column(TypeName = "DATE")]
         public required DateTime Daystart {get; set;}
@@ -22,15 +22,36 @@ namespace HotelManagement.Models
         public required DateTime DayEnd {get; set;}
 
         [Column(TypeName = "INT")]
-        public required string OccupancyLimit {get; set;}
+        public required int OccupancyLimit {get; set;}
+        
+        [ForeignKey("Channel")]
+        public int ChannelId { get; set;}
 
-        [Column(TypeName = "INT")]
-        public required int Capacity  {get; set;}
-
+        [ForeignKey("PaymentConstraint")]
+        public int PaymentConstraintId { get; set;}
+        
         [ForeignKey("Hotel")]
         public int HotelId { get; set;}
 
+        [ForeignKey("RoomType")]
+        public int RoomTypeId { get; set;}
+
+        [ForeignKey("CancelPolicy")]
+        public int CancelPolicyId { get; set;}
+
+        [ForeignKey("Additional")]
+        public int AdditionalId { get; set;}
+        public Channel? Channel { get; set; }
+
+        public PaymentConstraint? PaymentConstraint { get; set; }
+
         public Hotel? Hotel { get; set; }
+
+        public RoomType? RoomType { get; set; }
+
+        public CancelPolicy? CancelPolicy { get; set; }
+
+        public Additional? Additional { get; set; }
 
     }
 
