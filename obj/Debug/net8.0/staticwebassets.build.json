@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "nGDWB2SA5Ob852V6EuPwSfSayfgLW/2vhysRjZ02SEg=",
+  "Hash": "lK4yjTb/K6m48A7OrahO0yRekloqSK2xcCatou1KGlM=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "HotelManagement/wwwroot",
+      "Source": "HotelManagement",
+      "ContentRoot": "/Users/user/Documents/PSM-system/wwwroot/",
+      "BasePath": "_content/HotelManagement",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/user/Documents/PSM-system/wwwroot/assets/logo.jpg",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/user/Documents/PSM-system/wwwroot/",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "assets/logo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/assets/logo.jpg"
+    }
+  ]
 }
