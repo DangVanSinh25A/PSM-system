@@ -117,7 +117,7 @@ namespace HotelManagement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "varchar(30)", nullable: false),
                     Email = table.Column<string>(type: "varchar(20)", nullable: false),
-                    Password = table.Column<string>(type: "varchar(30)", nullable: false),
+                    Password = table.Column<string>(type: "varchar(80)", nullable: false),
                     Role = table.Column<string>(type: "varchar(6)", nullable: false),
                     Permission = table.Column<int>(type: "INT", nullable: false),
                     HotelId = table.Column<int>(type: "int", nullable: false)

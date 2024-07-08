@@ -15,7 +15,7 @@ namespace HotelManagement.Models
     [Column(TypeName = "varchar(20)")]
     public required string Email { get; set; }
 
-    [Column(TypeName = "varchar(30)")]
+    [Column(TypeName = "varchar(80)")]
     public required string Password { get; set; }
 
     [Column(TypeName = "varchar(6)")]

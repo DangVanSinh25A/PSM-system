@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "nGDWB2SA5Ob852V6EuPwSfSayfgLW/2vhysRjZ02SEg=",
+  "Hash": "IUCuUN8eRaQ5iQENjXPUzfI7h7Vmn2FzCNMzPs7/kOw=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "HotelManagement\\wwwroot",
+      "Source": "HotelManagement",
+      "ContentRoot": "C:\\Users\\PC\\HotelManagement\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

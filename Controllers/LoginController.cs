@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using HotelManagement.Dtos;
-using HotelManagement.Database;
+using HotelManagement.Sevice;
 
 namespace HotelManagement.Controllers
 {
@@ -9,11 +9,11 @@ namespace HotelManagement.Controllers
      public class LoginController : Controller
     {
 
-        private readonly AppDbContext _dbContext;
+        private readonly ISellerService _sellerService;
 
-        public LoginController(AppDbContext dbContext)
+        public LoginController(ISellerService sellerService)
         {
-            _dbContext = dbContext;
+            _sellerService = sellerService;
         }
 
         [Route("/login")]
@@ -21,39 +21,14 @@ namespace HotelManagement.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Login(Login request)
+        public IActionResult Login(LoginRequest request)
         {
-            var errors = new Dictionary<string, string[]>();
-            if (string.IsNullOrWhiteSpace(request.Email))
-                errors["Email"] = new[] { "Email must be a non-empty string" };
-            if (string.IsNullOrWhiteSpace(request.Password))
-                errors["Password"] = new[] { "Password must be a non-empty string" };
+            var authenticatedUser =_sellerService.Authenticate(request.Email, request.Password);
 
-            var seller = _dbContext.Sellers.FirstOrDefault(s => s.Email == request.Email);
-            
-            if(seller == null){
-                errors["Email"] = new[] { "Email error" };
-                return BadRequest(new { errors });
-            }
+            if (authenticatedUser == null)
+                return Unauthorized("Username or password is incorrect");
 
-            if(seller.Password != request.Password){
-                errors["Password"] = new[] { "Password error" };
-            }
-
-            if (errors.Any())
-            return BadRequest(new { errors });
-
-            return CreatedAtAction(nameof(GetSeller), new { id = seller.Id }, seller);
-
-        }
-        [HttpGet("{id}")]
-        public IActionResult GetSeller(int id)
-        {
-            var seller = _dbContext.Sellers.Find(id);
-            if (seller == null)
-                return NotFound();
-
-            return Ok(seller);
+            return Ok(authenticatedUser);
         }
     }
 }

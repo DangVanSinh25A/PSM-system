@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240704081523_InitialCreate")]
+    [Migration("20240708041538_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -306,7 +306,7 @@ namespace HotelManagement.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(80)");
 
                     b.Property<int>("Permission")
                         .HasColumnType("INT");

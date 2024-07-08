@@ -303,7 +303,7 @@ namespace HotelManagement.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(80)");
 
                     b.Property<int>("Permission")
                         .HasColumnType("INT");
