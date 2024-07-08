@@ -162,9 +162,6 @@ namespace HotelManagement.Migrations
                     b.Property<DateTime>("Daystart")
                         .HasColumnType("DATE");
 
-                    b.Property<int>("HotelId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
@@ -189,13 +186,34 @@ namespace HotelManagement.Migrations
 
                     b.HasIndex("ChannelId");
 
-                    b.HasIndex("HotelId");
-
                     b.HasIndex("PaymentConstraintId");
 
                     b.HasIndex("RoomTypeId");
 
                     b.ToTable("RatePlans");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.RatePlanAdditional", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("HotelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatePlanId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("HotelId");
+
+                    b.HasIndex("RatePlanId");
+
+                    b.ToTable("RatePlanAdditionals");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Room", b =>
@@ -366,12 +384,6 @@ namespace HotelManagement.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("HotelManagement.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("HotelManagement.Models.PaymentConstraint", "PaymentConstraint")
                         .WithMany()
                         .HasForeignKey("PaymentConstraintId")
@@ -390,11 +402,28 @@ namespace HotelManagement.Migrations
 
                     b.Navigation("Channel");
 
-                    b.Navigation("Hotel");
-
                     b.Navigation("PaymentConstraint");
 
                     b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("HotelManagement.Models.RatePlanAdditional", b =>
+                {
+                    b.HasOne("HotelManagement.Models.Hotel", "Hotel")
+                        .WithMany()
+                        .HasForeignKey("HotelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HotelManagement.Models.RatePlan", "RatePlan")
+                        .WithMany()
+                        .HasForeignKey("RatePlanId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hotel");
+
+                    b.Navigation("RatePlan");
                 });
 
             modelBuilder.Entity("HotelManagement.Models.Room", b =>

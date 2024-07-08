@@ -29,9 +29,6 @@ namespace HotelManagement.Models
 
         [ForeignKey("PaymentConstraint")]
         public int PaymentConstraintId { get; set;}
-        
-        [ForeignKey("Hotel")]
-        public int HotelId { get; set;}
 
         [ForeignKey("RoomType")]
         public int RoomTypeId { get; set;}
@@ -44,8 +41,6 @@ namespace HotelManagement.Models
         public Channel? Channel { get; set; }
 
         public PaymentConstraint? PaymentConstraint { get; set; }
-
-        public Hotel? Hotel { get; set; }
 
         public RoomType? RoomType { get; set; }
 
