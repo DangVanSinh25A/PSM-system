@@ -308,3 +308,4 @@ C:/Users/PC/HotelManagement/obj/Debug/net8.0/HotelManagement.RazorAssemblyInfo.c
 /Users/user/Documents/PSM-system/obj/Debug/net8.0/HotelManagement.pdb
 /Users/user/Documents/PSM-system/obj/Debug/net8.0/HotelManagement.genruntimeconfig.cache
 /Users/user/Documents/PSM-system/obj/Debug/net8.0/ref/HotelManagement.dll
+/Users/user/Documents/PSM-system/bin/Debug/net8.0/HotelManagement.staticwebassets.runtime.json
