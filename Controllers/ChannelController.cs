@@ -24,9 +24,9 @@ namespace HotelManagement.Controllers
                 Name = request.Name,
             };
 
-            var createdHotel = _channelService.CreateChannel(chanel); 
+            var createdChannel = _channelService.CreateChannel(chanel); 
 
-            return Ok(createdHotel);
+            return Ok(createdChannel);
         }
     }
 }
