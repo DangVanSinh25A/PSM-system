@@ -35,6 +35,9 @@ builder.Services.AddScoped<ICancelPolicyService, CancelPolicyService>();
 builder.Services.AddScoped<IAdditionalRepository, AdditionalRepository>();
 builder.Services.AddScoped<IAdditionalService, AdditionalService>();
 
+builder.Services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
+builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
