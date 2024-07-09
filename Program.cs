@@ -32,6 +32,9 @@ builder.Services.AddScoped<IPaymentConstraintService, PaymentConstraintService>(
 builder.Services.AddScoped<ICancelPolicyRepository, CancelPolicyRepository>();
 builder.Services.AddScoped<ICancelPolicyService, CancelPolicyService>();
 
+builder.Services.AddScoped<IAdditionalRepository, AdditionalRepository>();
+builder.Services.AddScoped<IAdditionalService, AdditionalService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

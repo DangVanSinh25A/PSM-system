@@ -16,7 +16,7 @@ namespace HotelManagement.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateHotel(CreateChannelRequest request)
+        public IActionResult CreateChanel(CreateChannelRequest request)
         {
             var chanel = new Channel
             {
