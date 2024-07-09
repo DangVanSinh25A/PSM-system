@@ -23,6 +23,9 @@ builder.Services.AddScoped<ISellerService, SellerService>();
 builder.Services.AddScoped<IHotelRepository, HotelRepository>();
 builder.Services.AddScoped<IHotelService, HotelService>();
 
+builder.Services.AddScoped<IChannelRepository, ChannelRepository>();
+builder.Services.AddScoped<IChannelService, ChannelService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
