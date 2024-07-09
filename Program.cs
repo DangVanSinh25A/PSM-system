@@ -26,6 +26,9 @@ builder.Services.AddScoped<IHotelService, HotelService>();
 builder.Services.AddScoped<IChannelRepository, ChannelRepository>();
 builder.Services.AddScoped<IChannelService, ChannelService>();
 
+builder.Services.AddScoped<IPaymentConstraintRepository, PaymentConstraintRepository>();
+builder.Services.AddScoped<IPaymentConstraintService, PaymentConstraintService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
