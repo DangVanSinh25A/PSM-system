@@ -29,6 +29,9 @@ builder.Services.AddScoped<IChannelService, ChannelService>();
 builder.Services.AddScoped<IPaymentConstraintRepository, PaymentConstraintRepository>();
 builder.Services.AddScoped<IPaymentConstraintService, PaymentConstraintService>();
 
+builder.Services.AddScoped<ICancelPolicyRepository, CancelPolicyRepository>();
+builder.Services.AddScoped<ICancelPolicyService, CancelPolicyService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
