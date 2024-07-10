@@ -38,6 +38,9 @@ builder.Services.AddScoped<IAdditionalService, AdditionalService>();
 builder.Services.AddScoped<IRoomTypeRepository, RoomTypeRepository>();
 builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
 
+builder.Services.AddScoped<IRatePlanRepository, RatePlanRepository>();
+builder.Services.AddScoped<IRatePlanService, RatePlanService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

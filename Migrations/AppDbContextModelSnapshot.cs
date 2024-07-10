@@ -147,9 +147,6 @@ namespace HotelManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdditionalId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CancelPolicyId")
                         .HasColumnType("int");
 
@@ -178,9 +175,10 @@ namespace HotelManagement.Migrations
                     b.Property<int>("RoomTypeId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
 
-                    b.HasIndex("AdditionalId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CancelPolicyId");
 
@@ -366,12 +364,6 @@ namespace HotelManagement.Migrations
 
             modelBuilder.Entity("HotelManagement.Models.RatePlan", b =>
                 {
-                    b.HasOne("HotelManagement.Models.Additional", "Additional")
-                        .WithMany()
-                        .HasForeignKey("AdditionalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("HotelManagement.Models.CancelPolicy", "CancelPolicy")
                         .WithMany()
                         .HasForeignKey("CancelPolicyId")
@@ -395,8 +387,6 @@ namespace HotelManagement.Migrations
                         .HasForeignKey("RoomTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Additional");
 
                     b.Navigation("CancelPolicy");
 

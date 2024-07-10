@@ -55,21 +55,12 @@ namespace HotelManagement.Database
                 .WithMany()
                 .HasForeignKey(s => s.PaymentConstraintId);
             
-            modelBuilder.Entity<RatePlan>()
-                .HasOne(s => s.RoomType)
-                .WithMany()
-                .HasForeignKey(s => s.RoomTypeId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<RatePlan>()
                 .HasOne(s => s.CancelPolicy)
                 .WithMany()
                 .HasForeignKey(s => s.CancelPolicyId);
             
-            modelBuilder.Entity<RatePlan>()
-                .HasOne(s => s.Additional)
-                .WithMany()
-                .HasForeignKey(s => s.AdditionalId);
 
             modelBuilder.Entity<RatePlanAdditional>()
                 .HasOne(s => s.Hotel)

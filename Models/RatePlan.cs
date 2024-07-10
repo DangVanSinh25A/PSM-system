@@ -36,8 +36,6 @@ namespace HotelManagement.Models
         [ForeignKey("CancelPolicy")]
         public int CancelPolicyId { get; set;}
 
-        [ForeignKey("Additional")]
-        public int AdditionalId { get; set;}
         public Channel? Channel { get; set; }
 
         public PaymentConstraint? PaymentConstraint { get; set; }
@@ -46,7 +44,8 @@ namespace HotelManagement.Models
 
         public CancelPolicy? CancelPolicy { get; set; }
 
-        public Additional? Additional { get; set; }
+        public required bool Status { get; set; }
+
 
     }
 
