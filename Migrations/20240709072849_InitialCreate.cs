@@ -117,7 +117,7 @@ namespace HotelManagement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "varchar(30)", nullable: false),
                     Email = table.Column<string>(type: "varchar(20)", nullable: false),
-                    Password = table.Column<string>(type: "varchar(30)", nullable: false),
+                    Password = table.Column<string>(type: "varchar(80)", nullable: false),
                     Role = table.Column<string>(type: "varchar(6)", nullable: false),
                     Permission = table.Column<int>(type: "INT", nullable: false),
                     HotelId = table.Column<int>(type: "int", nullable: false)
@@ -146,20 +146,13 @@ namespace HotelManagement.Migrations
                     OccupancyLimit = table.Column<int>(type: "INT", nullable: false),
                     ChannelId = table.Column<int>(type: "int", nullable: false),
                     PaymentConstraintId = table.Column<int>(type: "int", nullable: false),
-                    HotelId = table.Column<int>(type: "int", nullable: false),
                     RoomTypeId = table.Column<int>(type: "int", nullable: false),
                     CancelPolicyId = table.Column<int>(type: "int", nullable: false),
-                    AdditionalId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RatePlans", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RatePlans_Additionals_AdditionalId",
-                        column: x => x.AdditionalId,
-                        principalTable: "Additionals",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RatePlans_CancelPolicys_CancelPolicyId",
                         column: x => x.CancelPolicyId,
@@ -170,12 +163,6 @@ namespace HotelManagement.Migrations
                         name: "FK_RatePlans_Channels_ChannelId",
                         column: x => x.ChannelId,
                         principalTable: "Channels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_RatePlans_Hotels_HotelId",
-                        column: x => x.HotelId,
-                        principalTable: "Hotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -208,6 +195,32 @@ namespace HotelManagement.Migrations
                         name: "FK_Rooms_RoomTypes_RoomTypeId",
                         column: x => x.RoomTypeId,
                         principalTable: "RoomTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RatePlanAdditionals",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    RatePlanId = table.Column<int>(type: "int", nullable: false),
+                    HotelId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RatePlanAdditionals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RatePlanAdditionals_Hotels_HotelId",
+                        column: x => x.HotelId,
+                        principalTable: "Hotels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RatePlanAdditionals_RatePlans_RatePlanId",
+                        column: x => x.RatePlanId,
+                        principalTable: "RatePlans",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -256,9 +269,14 @@ namespace HotelManagement.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RatePlans_AdditionalId",
-                table: "RatePlans",
-                column: "AdditionalId");
+                name: "IX_RatePlanAdditionals_HotelId",
+                table: "RatePlanAdditionals",
+                column: "HotelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RatePlanAdditionals_RatePlanId",
+                table: "RatePlanAdditionals",
+                column: "RatePlanId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RatePlans_CancelPolicyId",
@@ -269,11 +287,6 @@ namespace HotelManagement.Migrations
                 name: "IX_RatePlans_ChannelId",
                 table: "RatePlans",
                 column: "ChannelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RatePlans_HotelId",
-                table: "RatePlans",
-                column: "HotelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RatePlans_PaymentConstraintId",
@@ -315,6 +328,12 @@ namespace HotelManagement.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Additionals");
+
+            migrationBuilder.DropTable(
+                name: "RatePlanAdditionals");
+
+            migrationBuilder.DropTable(
                 name: "Rooms");
 
             migrationBuilder.DropTable(
@@ -328,9 +347,6 @@ namespace HotelManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "RatePlans");
-
-            migrationBuilder.DropTable(
-                name: "Additionals");
 
             migrationBuilder.DropTable(
                 name: "CancelPolicys");

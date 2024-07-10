@@ -15,6 +15,7 @@ namespace HotelManagement.Database
         public DbSet<Additional> Additionals { get; set; }
         public DbSet<RatePlan> RatePlans { get; set; }
         public DbSet<SpecialRatePlan> SpecialRatePlans { get; set; }
+        public DbSet<RatePlanAdditional> RatePlanAdditionals { get; set; }
 
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options)
@@ -45,11 +46,6 @@ namespace HotelManagement.Database
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<RatePlan>()
-                .HasOne(s => s.Hotel)
-                .WithMany()
-                .HasForeignKey(s => s.HotelId);
-
-            modelBuilder.Entity<RatePlan>()
                 .HasOne(s => s.Channel)
                 .WithMany()
                 .HasForeignKey(s => s.ChannelId);
@@ -59,21 +55,22 @@ namespace HotelManagement.Database
                 .WithMany()
                 .HasForeignKey(s => s.PaymentConstraintId);
             
-            modelBuilder.Entity<RatePlan>()
-                .HasOne(s => s.RoomType)
-                .WithMany()
-                .HasForeignKey(s => s.RoomTypeId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<RatePlan>()
                 .HasOne(s => s.CancelPolicy)
                 .WithMany()
                 .HasForeignKey(s => s.CancelPolicyId);
             
-             modelBuilder.Entity<RatePlan>()
-                .HasOne(s => s.Additional)
+
+            modelBuilder.Entity<RatePlanAdditional>()
+                .HasOne(s => s.Hotel)
                 .WithMany()
-                .HasForeignKey(s => s.AdditionalId);
+                .HasForeignKey(s => s.HotelId);
+            
+            modelBuilder.Entity<RatePlanAdditional>()
+                .HasOne(s => s.RatePlan)
+                .WithMany()
+                .HasForeignKey(s => s.RatePlanId);
         }
     }
 }
