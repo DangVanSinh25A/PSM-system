@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ICFJ7O+/IJjPEKSgMLFAYH6aixltFdqrOGTKEk9uYAo=",
+  "Hash": "+IDLcwYMBOdtNuiwGT7yR4TyqZg0FtMDjh9PgEPCuYU=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
@@ -8,12 +8,32 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "HotelManagement/wwwroot",
+      "Name": "HotelManagement\\wwwroot",
       "Source": "HotelManagement",
-      "ContentRoot": "/Users/user/Documents/PSM-system/wwwroot/",
+      "ContentRoot": "C:\\Users\\PC\\HotelManagement\\wwwroot\\",
       "BasePath": "_content/HotelManagement",
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\PC\\HotelManagement\\wwwroot\\images\\logoPMS.png",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\HotelManagement\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "images/logoPMS.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\logoPMS.png"
+    }
+  ]
 }
