@@ -5,7 +5,7 @@ using HotelManagement.Sevice;
 namespace HotelManagement.Controllers
 {
     [ApiController]
-    [Route("api/cancelpolicy")]
+    [Route("api/cancel-policy")]
     public class CancelPolicyController : Controller
     {
         private readonly ICancelPolicyService _cancelpolicyService;

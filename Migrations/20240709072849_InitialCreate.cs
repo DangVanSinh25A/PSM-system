@@ -148,17 +148,11 @@ namespace HotelManagement.Migrations
                     PaymentConstraintId = table.Column<int>(type: "int", nullable: false),
                     RoomTypeId = table.Column<int>(type: "int", nullable: false),
                     CancelPolicyId = table.Column<int>(type: "int", nullable: false),
-                    AdditionalId = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RatePlans", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RatePlans_Additionals_AdditionalId",
-                        column: x => x.AdditionalId,
-                        principalTable: "Additionals",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_RatePlans_CancelPolicys_CancelPolicyId",
                         column: x => x.CancelPolicyId,
@@ -285,11 +279,6 @@ namespace HotelManagement.Migrations
                 column: "RatePlanId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RatePlans_AdditionalId",
-                table: "RatePlans",
-                column: "AdditionalId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_RatePlans_CancelPolicyId",
                 table: "RatePlans",
                 column: "CancelPolicyId");
@@ -339,6 +328,9 @@ namespace HotelManagement.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Additionals");
+
+            migrationBuilder.DropTable(
                 name: "RatePlanAdditionals");
 
             migrationBuilder.DropTable(
@@ -355,9 +347,6 @@ namespace HotelManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "RatePlans");
-
-            migrationBuilder.DropTable(
-                name: "Additionals");
 
             migrationBuilder.DropTable(
                 name: "CancelPolicys");

@@ -5,7 +5,7 @@ using HotelManagement.Sevice;
 namespace HotelManagement.Controllers
 {
     [ApiController]
-    [Route("api/roomtype")]
+    [Route("api/room-type")]
     public class RoomTypeController : Controller
     {
         private readonly IRoomTypeService _roomtypeService;

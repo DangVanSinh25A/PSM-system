@@ -5,7 +5,7 @@ using HotelManagement.Sevice;
 namespace HotelManagement.Controllers
 {
     [ApiController]
-    [Route("api/paymentconstraint")]
+    [Route("api/payment-constraint")]
     public class PaymentConstraintController : Controller
     {
         private readonly IPaymentConstraintService _paymentconstraintService;
