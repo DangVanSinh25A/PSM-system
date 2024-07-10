@@ -8,7 +8,7 @@ namespace HotelManagement.Repositories
     public interface IRatePlanRepository
     {
         RatePlan CreateRatePlan(RatePlan ratePlan);
-
+        RatePlanFilterRes GetRatePlan(int id);
         Task<List<RatePlanFilterRes>> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
     }
     public class RatePlanRepository : IRatePlanRepository
@@ -81,6 +81,25 @@ namespace HotelManagement.Repositories
             return ratePlanFilterRes;
 
         }
+
+        public RatePlanFilterRes GetRatePlan(int id){
+            var ratePlan = _context.RatePlans.Find(id);
+            var detailRatePlan = new RatePlanFilterRes
+            {
+                Name = ratePlan.Name,
+                Price = ratePlan.Price,
+                DayStart = ratePlan.Daystart,
+                DayEnd = ratePlan.DayEnd,
+                OccupancyLimit = ratePlan.OccupancyLimit,
+                Channel = _context.Channels.FirstOrDefault(rp => rp.Id == ratePlan.ChannelId),
+                PaymentConstraint = _context.PaymentConstraints.FirstOrDefault(rp => rp.Id == ratePlan.PaymentConstraintId),
+                RoomType = _context.RoomTypes.FirstOrDefault(rp => rp.Id == ratePlan.RoomTypeId),
+                CancelPolicy = _context.CancelPolicys.FirstOrDefault(rp => rp.Id == ratePlan.CancelPolicyId),
+                Status = ratePlan.Status
+            };
+            return detailRatePlan;
+        }
+       
 
     }
 }
