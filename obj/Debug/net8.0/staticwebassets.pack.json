@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\images\\logoPMS.png"
     },
     {
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\js\\Login.js",
+      "PackagePath": "staticwebassets\\js\\Login.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
