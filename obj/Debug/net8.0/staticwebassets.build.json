@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IUCuUN8eRaQ5iQENjXPUzfI7h7Vmn2FzCNMzPs7/kOw=",
+  "Hash": "1QDWxzanaPOChAHLoZlKwSyyEp9K/hm0G5ZUWssW/kk=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
@@ -15,5 +15,25 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\PC\\HotelManagement\\wwwroot\\css\\style.css",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\HotelManagement\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
+    }
+  ]
 }
