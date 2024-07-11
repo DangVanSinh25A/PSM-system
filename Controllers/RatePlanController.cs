@@ -37,8 +37,8 @@ namespace HotelManagement.Controllers
             return Ok(createdRatePlan);
         }
 
-    [HttpGet]
-    public async Task<ActionResult<List<RatePlanFilterRes>>> GetRatePlans(
+        [HttpGet]
+    public async Task<ActionResult<RatePlanRes>> GetRatePlans(
         [FromQuery] string? channelName, [FromQuery] DateTime? dayStart, [FromQuery] DateTime? dayEnd, 
         [FromQuery] string? roomTypeName, [FromQuery] bool? status)
     {
@@ -47,7 +47,7 @@ namespace HotelManagement.Controllers
     }
 
     [HttpGet("{id}")]
-    public RatePlanFilterRes GetRatePlan(int id){
+    public RatePlanRes GetRatePlan(int id){
         var ratePlan = _rateplanService.GetRatePlan(id);
         return ratePlan;
     }
