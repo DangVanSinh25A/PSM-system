@@ -46,7 +46,10 @@ namespace HotelManagement.Models
 
         public required bool Status { get; set; }
 
-
+        public static implicit operator List<object>(RatePlan v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\images\\logoPMS.png",
+      "PackagePath": "staticwebassets\\images\\logoPMS.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\js\\Login.js",
+      "PackagePath": "staticwebassets\\js\\Login.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssets.props",
