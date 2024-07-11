@@ -9,7 +9,7 @@ namespace HotelManagement.Repositories
     {
         RatePlan CreateRatePlan(RatePlan ratePlan);
 
-        Task<List<RatePlanFilterRes>> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
+        Task<List<RatePlan>> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
     }
     public class RatePlanRepository : IRatePlanRepository
     {
@@ -27,7 +27,7 @@ namespace HotelManagement.Repositories
             return ratePlan;
         }
 
-        public async Task<List<RatePlanFilterRes>> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status)
+        public async Task<List<RatePlan>> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status)
         {
             var listRatePlan = _context.RatePlans.AsQueryable();
 
@@ -64,11 +64,11 @@ namespace HotelManagement.Repositories
             var ratePlan = await listRatePlan
                 .ToListAsync();
 
-            var ratePlanFilterRes = ratePlan.Select(b => new RatePlanFilterRes
+            var ratePlanFilterRes = ratePlan.Select(b => new RatePlan
             {
                 Name = b.Name,
                 Price = b.Price,
-                DayStart = b.Daystart,
+                Daystart = b.Daystart,
                 DayEnd = b.DayEnd,
                 OccupancyLimit = b.OccupancyLimit,
                 Channel = _context.Channels.FirstOrDefault(rp => rp.Id == b.ChannelId),

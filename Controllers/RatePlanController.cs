@@ -38,7 +38,7 @@ namespace HotelManagement.Controllers
         }
 
         [HttpGet]
-    public async Task<ActionResult<List<RatePlanFilterRes>>> GetRatePlans(
+    public async Task<ActionResult<List<RatePlan>>> GetRatePlans(
         [FromQuery] string? channelName, [FromQuery] DateTime? dayStart, [FromQuery] DateTime? dayEnd, 
         [FromQuery] string? roomTypeName, [FromQuery] bool? status)
     {
