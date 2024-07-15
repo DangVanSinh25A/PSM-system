@@ -38,18 +38,18 @@ namespace HotelManagement.Controllers
         }
 
         [HttpGet]
-    public async Task<ActionResult<RatePlanRes>> GetRatePlans(
-        [FromQuery] string? channelName, [FromQuery] DateTime? dayStart, [FromQuery] DateTime? dayEnd, 
-        [FromQuery] string? roomTypeName, [FromQuery] bool? status)
-    {
-        var ratePlans = await _rateplanService.GetRatePlansAsync(channelName, dayStart, dayEnd, roomTypeName, status);
-        return ratePlans;
-    }
+        public async Task<ActionResult<RatePlanRes>> GetRatePlans(
+            [FromQuery] string? channelName, [FromQuery] DateTime? dayStart, [FromQuery] DateTime? dayEnd, 
+            [FromQuery] string? roomTypeName, [FromQuery] bool? status)
+        {
+            var ratePlans = await _rateplanService.GetRatePlansAsync(channelName, dayStart, dayEnd, roomTypeName, status);
+            return ratePlans;
+        }
 
-    [HttpGet("{id}")]
-    public RatePlanRes GetRatePlan(int id){
-        var ratePlan = _rateplanService.GetRatePlan(id);
-        return ratePlan;
-    }
-    }
+        [HttpGet("{id}")]
+        public RatePlanRes GetRatePlan(int id){
+            var ratePlan = _rateplanService.GetRatePlan(id);
+            return ratePlan;
+        }
+        }
 }

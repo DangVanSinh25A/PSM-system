@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionStringBuilder = new SqlConnectionStringBuilder(@"Server=LAPTOP-HGV8Q04P\SQLEXPRESS;Database=Hotel;User Id=sa;Password=Sinh!@121;");
+var connectionStringBuilder = new SqlConnectionStringBuilder(@"Server=LAPTOP-HGV8Q04P\SQLEXPRESS;Database=Hotel;User Id=sa;Password=Sinh!@121;Connection Timeout=30;");
 connectionStringBuilder.TrustServerCertificate = true;
 builder.Services.AddDbContext<AppDbContext>(
     options => options.UseSqlServer(connectionStringBuilder.ConnectionString));
@@ -48,6 +48,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader();
+});
 
 app.UseHttpsRedirection();
 app.UseAuthorization();

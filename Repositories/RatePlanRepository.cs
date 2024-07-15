@@ -39,6 +39,8 @@ namespace HotelManagement.Repositories
                 if (channel != null)
                 {
                     listRatePlan = listRatePlan.Where(rp => rp.ChannelId == channel.Id);
+                }else{
+                    listRatePlan = null;
                 }
             }
 
@@ -53,6 +55,8 @@ namespace HotelManagement.Repositories
                 if (roomType != null)
                 {
                     listRatePlan = listRatePlan.Where(rp => rp.RoomTypeId == roomType.Id);
+                }else{
+                    listRatePlan = null;
                 }
             }
 
@@ -61,9 +65,7 @@ namespace HotelManagement.Repositories
                 listRatePlan = listRatePlan.Where(b => b.Status == status);
             }
 
-            var ratePlanList = await listRatePlan.ToListAsync();
-
-            if (ratePlanList == null || !ratePlanList.Any())
+            if (listRatePlan == null || !listRatePlan.Any())
             {
                 return new RatePlanRes
                 {
@@ -72,7 +74,7 @@ namespace HotelManagement.Repositories
                 };
             }
 
-            var ratePlanFilterRes = ratePlanList.Select(b => new RatePlan
+            var ratePlanFilterRes = listRatePlan.Select(b => new RatePlan
             {
                 Id = b.Id,
                 Name = b.Name,
