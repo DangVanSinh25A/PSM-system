@@ -1,0 +1,54 @@
+/* ========== Google font ============ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"rel="stylesheet");
+* {
+  font-family: "Inter";
+}
+:root {
+  --gray: #f8f8f8;
+  --text: #091e42;
+  --yellow: #F1D61E;
+}
+.content-main {
+  display: block;
+  margin-top: 50px;
+}
+.content {
+  background: var(--gray);
+}
+.content p {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.wrap {
+  width: 800px;
+  margin-top: 50px;
+}
+.wrap h3 {
+  color: var(--yellow);
+}
+.feature {
+  margin-left: 900px;
+}
+.comeback button {
+  background: var(--blue-btn-create);
+  color: var(--white);
+  weight: auto;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.feature button {
+  background: var(--blue-btn-create);
+  color: var(--white);
+  weight: auto;
+  height: 40px;
+  border: 2px solid;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
