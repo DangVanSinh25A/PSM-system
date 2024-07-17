@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240709072849_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240717033838_Hotel")]
+    partial class Hotel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -202,7 +202,7 @@ namespace HotelManagement.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("HotelId")
+                    b.Property<int>("AdditionalId")
                         .HasColumnType("int");
 
                     b.Property<int>("RatePlanId")
@@ -210,7 +210,7 @@ namespace HotelManagement.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
+                    b.HasIndex("AdditionalId");
 
                     b.HasIndex("RatePlanId");
 
@@ -402,9 +402,9 @@ namespace HotelManagement.Migrations
 
             modelBuilder.Entity("HotelManagement.Models.RatePlanAdditional", b =>
                 {
-                    b.HasOne("HotelManagement.Models.Hotel", "Hotel")
+                    b.HasOne("HotelManagement.Models.Additional", "Additional")
                         .WithMany()
-                        .HasForeignKey("HotelId")
+                        .HasForeignKey("AdditionalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -414,7 +414,7 @@ namespace HotelManagement.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Hotel");
+                    b.Navigation("Additional");
 
                     b.Navigation("RatePlan");
                 });

@@ -63,9 +63,9 @@ namespace HotelManagement.Database
             
 
             modelBuilder.Entity<RatePlanAdditional>()
-                .HasOne(s => s.Hotel)
+                .HasOne(s => s.Additional)
                 .WithMany()
-                .HasForeignKey(s => s.HotelId);
+                .HasForeignKey(s => s.AdditionalId);
             
             modelBuilder.Entity<RatePlanAdditional>()
                 .HasOne(s => s.RatePlan)

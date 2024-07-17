@@ -6,7 +6,7 @@ namespace HotelManagement.Sevice
          public interface IRatePlanService
         {
             RatePlan CreateRatePlan(RatePlan ratePlan);
-            Task<RatePlanRes> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
+            Task<RatePlanRes> GetRatePlansAsync(int? hotelId, string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
             RatePlanRes GetRatePlan(int id);
          
 
@@ -26,9 +26,9 @@ namespace HotelManagement.Sevice
                 return _rateplanRepository.CreateRatePlan(ratePlan);
             }
 
-            public Task<RatePlanRes> GetRatePlansAsync(string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status)
+            public Task<RatePlanRes> GetRatePlansAsync(int? hotelId, string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status)
             {
-                return _rateplanRepository.GetRatePlansAsync(channelName, dayStart, dayEnd, roomTypeName, status);
+                return _rateplanRepository.GetRatePlansAsync(hotelId, channelName, dayStart, dayEnd, roomTypeName, status);
             }
 
             public RatePlanRes GetRatePlan(int id){

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HotelManagement.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Hotel : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -206,15 +206,15 @@ namespace HotelManagement.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RatePlanId = table.Column<int>(type: "int", nullable: false),
-                    HotelId = table.Column<int>(type: "int", nullable: false)
+                    AdditionalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RatePlanAdditionals", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RatePlanAdditionals_Hotels_HotelId",
-                        column: x => x.HotelId,
-                        principalTable: "Hotels",
+                        name: "FK_RatePlanAdditionals_Additionals_AdditionalId",
+                        column: x => x.AdditionalId,
+                        principalTable: "Additionals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -269,9 +269,9 @@ namespace HotelManagement.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_RatePlanAdditionals_HotelId",
+                name: "IX_RatePlanAdditionals_AdditionalId",
                 table: "RatePlanAdditionals",
-                column: "HotelId");
+                column: "AdditionalId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RatePlanAdditionals_RatePlanId",
@@ -328,9 +328,6 @@ namespace HotelManagement.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Additionals");
-
-            migrationBuilder.DropTable(
                 name: "RatePlanAdditionals");
 
             migrationBuilder.DropTable(
@@ -344,6 +341,9 @@ namespace HotelManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "SpecialRatePlans");
+
+            migrationBuilder.DropTable(
+                name: "Additionals");
 
             migrationBuilder.DropTable(
                 name: "RatePlans");
