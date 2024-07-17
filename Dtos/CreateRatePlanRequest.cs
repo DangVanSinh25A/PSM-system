@@ -42,6 +42,7 @@ namespace HotelManagement.Dtos
         [Range(1, int.MaxValue, ErrorMessage = "RoomTypeId must be a valid ID.")]
         public required int RoomTypeId { get; set; }
         public bool Status { get; internal set; }
+        public required int[] AdditionalId{get; set;} 
     }
 
     public class DateGreaterThanAttribute : ValidationAttribute

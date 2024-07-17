@@ -32,7 +32,21 @@ namespace HotelManagement.Controllers
                 Status = Convert.ToBoolean(1)
             };
 
-            var createdRatePlan = _rateplanService.CreateRatePlan(ratePlan); 
+            var createdRatePlan = _rateplanService.CreateRatePlan(ratePlan);
+
+                if (request.AdditionalId != null)
+            {
+                foreach (var additionalId in request.AdditionalId)
+                {
+                    var ratePlanAdditional = new RatePlanAdditional
+                    {
+                        RatePlanId = createdRatePlan.Id,
+                        AdditionalId = additionalId
+                    };
+                    _rateplanService.CreateAddtionalOfRatePlan(ratePlanAdditional); 
+                }
+            }
+
 
             return Ok(createdRatePlan);
         }

@@ -1,6 +1,7 @@
 using HotelManagement.Database;
 using HotelManagement.Dtos;
 using HotelManagement.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace HotelManagement.Repositories
 {
@@ -11,6 +12,7 @@ namespace HotelManagement.Repositories
 
         Task<RatePlanRes> GetRatePlansAsync(int? hotelId, string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
         RatePlanRes GetRatePlan(int id);
+        void CreateAddtionalOfRatePlan(RatePlanAdditional ratePlanAdditional);
         
     }
     public class RatePlanRepository : IRatePlanRepository
@@ -29,8 +31,14 @@ namespace HotelManagement.Repositories
             return ratePlan;
         }
 
+        public void CreateAddtionalOfRatePlan(RatePlanAdditional ratePlanAdditional)
+        {
+            _context.RatePlanAdditionals.Add(ratePlanAdditional);
+            _context.SaveChanges();
+        }
+
     public async Task<RatePlanRes> GetRatePlansAsync(int? hotelId, string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status)
-{
+    {
     var listRatePlan = await _context.RatePlans
         .Where(r => hotelId.HasValue && r.RoomType.HotelId == hotelId.Value)
         .Include(r => r.RoomType)
