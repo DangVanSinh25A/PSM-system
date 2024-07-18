@@ -168,8 +168,9 @@ namespace HotelManagement.Repositories
             },
             Additional = _context.RatePlanAdditionals.Where(a => a.RatePlanId == ratePlan.Id)
                         .Select(a => _context.Additionals.FirstOrDefault(ad => ad.Id == a.AdditionalId))
-                        .ToList()
-                
+                        .ToList(),
+            SpecialRatePlan =  _context.SpecialRatePlans.Where(a => a.RatePlanId == ratePlan.Id)
+            .ToList()                
             };
             return new RatePlanRes
             {
