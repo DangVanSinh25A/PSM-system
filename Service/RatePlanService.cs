@@ -9,6 +9,11 @@ namespace HotelManagement.Sevice
             Task<RatePlanRes> GetRatePlansAsync(int? hotelId, string? channelName, DateTime? dayStart, DateTime? dayEnd, string? roomTypeName, bool? status);
             RatePlanRes GetRatePlan(int id);
             void CreateAddtionalOfRatePlan(RatePlanAdditional ratePlanAdditional);
+            RatePlan UpdateRatePlan(RatePlan ratePlan);
+            List<Additional> GetAdditonal(int ratePlanId);
+            void DeleteAdditionalOfRatePlan(int ratePlanId, int additionalId);
+            List<int> GetAdditionalIdsToRemoves(int[] AdditionalId, List<Additional> listAdditional);
+
         }
 
         public class RatePlanService : IRatePlanService
@@ -41,6 +46,24 @@ namespace HotelManagement.Sevice
                 var detailRatePlan = _rateplanRepository.GetRatePlan(id);
                 return detailRatePlan; 
             }
-        }
-        
+
+            public RatePlan UpdateRatePlan(RatePlan ratePlan){
+                return _rateplanRepository.UpdateRatePlan(ratePlan);
+            }
+
+            public List<Additional> GetAdditonal(int ratePlanId){
+                return _rateplanRepository.GetAdditonal(ratePlanId);
+            }
+
+            public void DeleteAdditionalOfRatePlan(int ratePlanId, int additionalId)
+            {
+                _rateplanRepository.DeleteAdditionalOfRatePlan(ratePlanId, additionalId);
+            }
+
+            public List<int> GetAdditionalIdsToRemoves(int[] AdditionalId, List<Additional> listAdditional)
+            {
+                return _rateplanRepository.GetAdditionalIdsToRemoves(AdditionalId,listAdditional);
+            }
+            
+        }       
 }
