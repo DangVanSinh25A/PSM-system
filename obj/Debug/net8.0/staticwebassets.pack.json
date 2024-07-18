@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\Home.css"
     },
     {
+      "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\RatePlan.css",
+      "PackagePath": "staticwebassets\\css\\RatePlan.css"
+    },
+    {
       "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\images\\customer02.jpg",
       "PackagePath": "staticwebassets\\images\\customer02.jpg"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\Login.js",
       "PackagePath": "staticwebassets\\js\\Login.js"
+    },
+    {
+      "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\RatePlan.js",
+      "PackagePath": "staticwebassets\\js\\RatePlan.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssets.props",

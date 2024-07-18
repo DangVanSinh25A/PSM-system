@@ -1,3 +1,4 @@
+
 function filter() {
   document.getElementById("filter").style.display = "block";
   console.log("successful");
@@ -13,6 +14,7 @@ filterForm.addEventListener("submit", function (event) {
 
   let formData = new FormData(this);
   let filterCriteria = {
+    hotelId : sessionStorage.getItem("hotelId") ,
     channelName: formData.get("channelName") || "",
     roomType: Array.from(formData.getAll("roomType")),
     status: formData.get("status") || "",
@@ -26,7 +28,7 @@ filterForm.addEventListener("submit", function (event) {
   fetchRatePlans(filterCriteria);
   async function fetchRatePlans(filterCriteria) {
     try {
-      let url = `http://192.168.1.131:5034/api/rate-plan?hotelId=2&channelName=${
+      let url = `http://192.168.1.131:5034/api/rate-plan?hotelId=${filterCriteria.hotelId}&channelName=${
         filterCriteria.channelName
       }&roomTypeNames=${filterCriteria.roomType.join(
         ","

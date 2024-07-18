@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "835tY+5xaDiReYCU9rQwe0ekpG29ZxntluTx0QoOCxQ=",
+  "Hash": "K1aTkJu7pgwytaNWHfoHTzQPd2JZIF5yfF2FRwv47Bk=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Home.css"
+    },
+    {
+      "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\RatePlan.css",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\New-PMS\\PSM-system\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "css/RatePlan.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\RatePlan.css"
     },
     {
       "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\images\\customer02.jpg",
@@ -148,6 +167,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Login.js"
+    },
+    {
+      "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\RatePlan.js",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\New-PMS\\PSM-system\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "js/RatePlan.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\RatePlan.js"
     }
   ]
 }

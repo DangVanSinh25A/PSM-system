@@ -6,7 +6,12 @@
 :root {
   --gray: #f8f8f8;
   --text: #091e42;
-  --yellow: #F1D61E;
+  --yellow: #F1D61E; 
+  --yellow-icon-advance-edit: #FFB22C;
+  --red: #C80036;
+  --white: #FFFFFF;
+  --gray-border: #D0D5DD;
+  --text-in-btn: #344054;
 }
 .content-main {
   display: block;
@@ -14,18 +19,20 @@
 }
 .content {
   background: var(--gray);
+  padding: 10px;
 }
 .content p {
   margin-bottom: 10px;
   color: var(--text);
 }
-
 .wrap {
   width: 800px;
-  margin-top: 50px;
 }
 .wrap h3 {
-  color: var(--yellow);
+  color: var(--red);
+}
+.wrap .h3Name {
+  margin-top: 10px;
 }
 .feature {
   margin-left: 900px;
@@ -41,14 +48,31 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+.comeback button i {
+  padding: 3px;
+}
 .feature button {
-  background: var(--blue-btn-create);
-  color: var(--white);
+  background: var(--white);
+  color: var(--text-in-btn);
   weight: auto;
   height: 40px;
-  border: 2px solid;
+  border: 1px solid var(--gray-border);
   border-radius: 8px;
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+.feature button i {
+  padding: 3px;
+}
+.advance-edit i {
+  color: var( --yellow-icon-advance-edit);
+}
+
+.edit i {
+  color: green;
+}
+
+.deactivate i {
+  color: red;
 }
