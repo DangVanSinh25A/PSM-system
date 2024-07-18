@@ -41,6 +41,9 @@ builder.Services.AddScoped<IRoomTypeService, RoomTypeService>();
 builder.Services.AddScoped<IRatePlanRepository, RatePlanRepository>();
 builder.Services.AddScoped<IRatePlanService, RatePlanService>();
 
+builder.Services.AddScoped<ISpecialRatePlanRepository, SpecialRatePlanRepository>();
+builder.Services.AddScoped<ISpecialRatePlanSevice, SpecialRatePlanService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
