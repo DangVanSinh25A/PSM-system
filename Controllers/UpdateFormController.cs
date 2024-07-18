@@ -5,11 +5,11 @@ using HotelManagement.Sevice;
 namespace HotelManagement.Controllers
 {
     [ApiController]
-    [Route("api/ratePlan")]
-    public class UIRateController : Controller
+    [Route("api/updateForm")]
+    public class UpdateFormController : Controller
     {
-        [Route("/ratePlan")]
-        public IActionResult RatePlan()
+        [Route("/updateForm")]
+        public IActionResult updateForm()
         {
             return View();  
         }
