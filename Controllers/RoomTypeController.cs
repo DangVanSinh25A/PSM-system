@@ -33,5 +33,11 @@ namespace HotelManagement.Controllers
 
             return Ok(createdRoomType);
         }
+        [HttpGet]
+        public IActionResult GetRoomTypes()
+        {
+            var roomTypes = _roomtypeService.GetRoomTypes();
+            return roomTypes;
+        }
     }
 }

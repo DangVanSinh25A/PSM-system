@@ -46,8 +46,6 @@ namespace HotelManagement.Controllers
                     _rateplanService.CreateAddtionalOfRatePlan(ratePlanAdditional); 
                 }
             }
-
-
             return Ok(createdRatePlan);
         }
 

@@ -40,7 +40,8 @@
     if (response.ok) {
         const data = await response.json();
         console.log(data);
-        window.location.href = "/home";
+        sessionStorage.setItem('username', data);
+        // window.location.href = "/home";
     } else if (response.status === 400) {
         const errorData = await response.json();
         console.log(errorData.errors.Password)
