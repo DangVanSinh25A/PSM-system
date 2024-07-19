@@ -28,5 +28,11 @@ namespace HotelManagement.Controllers
 
             return Ok(createdCancelPolicy);
         }
+        [HttpGet]
+        public IActionResult GetCancelPolicys()
+        {
+            var canncelPolicys = _cancelpolicyService.GetCancalPolicys();
+            return Ok(canncelPolicys);
+        }
     }
 }

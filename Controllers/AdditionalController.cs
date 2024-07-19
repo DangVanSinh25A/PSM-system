@@ -28,5 +28,10 @@ namespace HotelManagement.Controllers
 
             return Ok(createdAdditional);
         }
+        [HttpGet]
+        public IActionResult GetAdditionals(){
+            var additionals = _additionalService.GetAdditionals();
+            return Ok(additionals);
+        }
     }
 }

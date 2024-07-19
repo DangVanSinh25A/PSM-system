@@ -1,11 +1,13 @@
 using HotelManagement.Database;
 using HotelManagement.Models;
+using Microsoft.AspNetCore.Mvc;
 namespace HotelManagement.Repositories
 {
 
     public interface IRoomTypeRepository
     {
         RoomType CreateRoomType(RoomType roomType);
+        JsonResult GetRoomTypes();
     }
     public class RoomTypeRepository : IRoomTypeRepository
     {
@@ -22,6 +24,13 @@ namespace HotelManagement.Repositories
             _context.SaveChanges();
             return roomtype;
         }
+
+        public JsonResult GetRoomTypes()
+        {
+            var roomTypes = _context.RoomTypes.ToList();
+            return new JsonResult(roomTypes){StatusCode=200};
+        }
+
 
     }
 }

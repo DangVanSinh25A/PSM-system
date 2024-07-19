@@ -28,5 +28,11 @@ namespace HotelManagement.Controllers
 
             return Ok(createdChannel);
         }
+
+        public IActionResult GetChannels()
+        {
+            var channels = _channelService.GetChannels();
+            return Ok(channels);
+        }
     }
 }
