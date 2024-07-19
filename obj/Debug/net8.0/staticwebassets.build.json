@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K1aTkJu7pgwytaNWHfoHTzQPd2JZIF5yfF2FRwv47Bk=",
+  "Hash": "vmDlMr+j2BGPZCmoZlOrmVipiZMpVe9LgHXIs1V9hu8=",
   "Source": "HotelManagement",
   "BasePath": "_content/HotelManagement",
   "Mode": "Default",
@@ -16,6 +16,25 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\Calendar.css",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\New-PMS\\PSM-system\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "css/Calendar.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Calendar.css"
+    },
     {
       "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\Detail.css",
       "SourceId": "HotelManagement",
@@ -112,6 +131,25 @@
       "OriginalItemSpec": "wwwroot\\images\\logoPMS.png"
     },
     {
+      "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\Calendar.js",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\New-PMS\\PSM-system\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "js/Calendar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Calendar.js"
+    },
+    {
       "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\Detail.js",
       "SourceId": "HotelManagement",
       "SourceType": "Discovered",
@@ -186,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\RatePlan.js"
+    },
+    {
+      "Identity": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\SpecialCreate.js",
+      "SourceId": "HotelManagement",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\New-PMS\\PSM-system\\wwwroot\\",
+      "BasePath": "_content/HotelManagement",
+      "RelativePath": "js/SpecialCreate.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\SpecialCreate.js"
     }
   ]
 }

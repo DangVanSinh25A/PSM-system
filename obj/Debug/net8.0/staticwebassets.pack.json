@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\Calendar.css",
+      "PackagePath": "staticwebassets\\css\\Calendar.css"
+    },
+    {
       "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\css\\Detail.css",
       "PackagePath": "staticwebassets\\css\\Detail.css"
     },
@@ -21,6 +25,10 @@
       "PackagePath": "staticwebassets\\images\\logoPMS.png"
     },
     {
+      "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\Calendar.js",
+      "PackagePath": "staticwebassets\\js\\Calendar.js"
+    },
+    {
       "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\Detail.js",
       "PackagePath": "staticwebassets\\js\\Detail.js"
     },
@@ -35,6 +43,10 @@
     {
       "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\RatePlan.js",
       "PackagePath": "staticwebassets\\js\\RatePlan.js"
+    },
+    {
+      "Id": "D:\\New-PMS\\PSM-system\\wwwroot\\js\\SpecialCreate.js",
+      "PackagePath": "staticwebassets\\js\\SpecialCreate.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssets.props",
