@@ -1,8 +1,20 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
+    },
+    {
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\images\\customer02.jpg",
+      "PackagePath": "staticwebassets\\images\\customer02.jpg"
+    },
+    {
       "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\images\\logoPMS.png",
       "PackagePath": "staticwebassets\\images\\logoPMS.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\js\\Home.js",
+      "PackagePath": "staticwebassets\\js\\Home.js"
     },
     {
       "Id": "C:\\Users\\PC\\HotelManagement\\wwwroot\\js\\Login.js",

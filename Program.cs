@@ -16,10 +16,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var connectionStringBuilder = new SqlConnectionStringBuilder(@"Server=LAPTOP-HGV8Q04P\SQLEXPRESS;Database=Hotel;User Id=sa;Password=Sinh!@121;Connection Timeout=30;");
-connectionStringBuilder.TrustServerCertificate = true;
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(connectionStringBuilder.ConnectionString));
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 builder.Services.AddControllersWithViews();
 
@@ -71,7 +70,6 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.Urls.Add("http://192.168.1.131:5034");
 
 app.Run();
 
