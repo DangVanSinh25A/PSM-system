@@ -1,11 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
 using HotelManagement.Database;
-using HotelManagement.Sevice;
 using HotelManagement.Repositories;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+using HotelManagement.Sevice;
+using Microsoft.AspNetCore.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -65,6 +72,30 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.Urls.Add("http://192.168.1.131:5034");
-
 app.Run();
+
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "text/plain";
+
+        var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+        if (exceptionHandlerPathFeature?.Error is Exception ex)
+        {
+            System.IO.File.WriteAllText("D://Log.txt", $"{DateTime.Now}: {ex.Message}\n{ex.StackTrace}");
+            await context.Response.WriteAsync("An unexpected fault happened. Try again later.");
+        }
+    });
+});
+
+try
+{
+    app.Run();
+}
+catch (Exception ex)
+{
+    System.IO.File.WriteAllText("D://Log.txt", $"{DateTime.Now}: {ex.Message}\n{ex.StackTrace}");
+    throw; 
+}
