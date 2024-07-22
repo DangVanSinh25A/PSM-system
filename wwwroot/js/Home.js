@@ -102,7 +102,13 @@ function filter() {
     }
   }
   
-  
+  function confirmLogout(event) {
+    event.preventDefault(); 
+    const userConfirmed = confirm("Are you sure you want to log out?");
+    if (userConfirmed) {
+        window.location.href = event.currentTarget.href; 
+    }
+}
   
   
   

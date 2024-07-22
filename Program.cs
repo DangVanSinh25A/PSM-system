@@ -71,7 +71,7 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-app.Urls.Add("http://192.168.1.131:5034");
+// app.Urls.Add("http://192.168.1.131:5034");
 
 app.Run();
 
