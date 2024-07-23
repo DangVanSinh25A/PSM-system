@@ -72,6 +72,11 @@ label {
 .service select {
   width: 380px;
 }
+.service input{
+  width: 380px;
+  height: 50px;
+}
+
 .form-select {
   margin-top: 0.75rem;
   /* border: 1px solid var(--gray-border);
@@ -189,3 +194,4 @@ label {
   padding: 10px;
   margin: 20px 0 10px 0;
 }
+

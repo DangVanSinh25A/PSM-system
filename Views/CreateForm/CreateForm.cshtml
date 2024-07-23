@@ -20,6 +20,7 @@
 
 <body>
     <div class="content-main">
+        <div id="errorMessage">You must fill in all information correctly</div>
         <div class="preivous">
             <button>
                 <i class="fa-solid fa-arrow-left"></i>
@@ -32,65 +33,54 @@
         </div>
         <h1 class="create">Create</h1>
         <h1>Rate Plan</h1>
-        <form class="form">
+        <form class="form" id="ratePlanForm">
             <div class="row">
                 <div class="col">
                     <label for="name"><b>Name*</b></label>
-                    <input type="text" class="form-control" placeholder="Rate plan name">
+                    <input type="text" class="form-control" placeholder="Rate plan name" id="name">
                 </div>
                 <div class="col">
                     <label for="price"><b>Price*</b></label>
-                    <input type="text" class="form-control" placeholder="Price">
+                    <input type="text" class="form-control" placeholder="Price" id="price">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="dayStart"><b>Date Start*</b></label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" id="dayStart">
                 </div>
                 <div class="col">
                     <label for="dayEnd"><b>Date End*</b></label>
-                    <input type="date" class="form-control">
+                    <input type="date" class="form-control" id="dayEnd">
                 </div>
             </div>
             <div class="service">
                 <div>
                     <label><b>Room Type*</b></label>
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="roomType">
+                        <option selected>Loading...</option>                    
                     </select>
                 </div>
                 <div>
                     <label><b>Occupancy Limit*</b></label>
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="occupancyLimit">
+                        <option selected>Loading...</option>                    
                     </select>
-                </div>
+                    @* <input type="text" class="form-control" placeholder="Occupancy Limit" id="occupancyLimit">               *@
+                </div> 
 
             </div>
             <div class="service">
                 <div>
                     <label><b>Cancle Policy*</b></label>
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="cancelPolicy">
+                        <option selected>Loading...</option>                    
                     </select>
                 </div>
                 <div>
                     <label><b>Payment Constraint*</b></label><br>
-                    <select class="form-select" id="inlineFormSelectPref">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" id="paymentContraint">
+                        <option selected>Loading...</option>                    
                     </select>
                 </div>
 
@@ -101,15 +91,7 @@
                     <span class="selected-value">Open this select menu</span>
                     <span class="arrow"></span>
                 </button>
-                <ul class="select-dropdown">
-                    <li>
-                        <input type="checkbox" id="breakfast" />
-                        <label for="breakfast">Breakfast</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="dinner" />
-                        <label for="dinner">Dinner</label>
-                    </li>
+                <ul class="select-dropdown"id="additional" >
                 </ul>
             </div>
 
