@@ -189,3 +189,8 @@ label {
   padding: 10px;
   margin: 20px 0 10px 0;
 }
+
+.service .form-control{
+  width: 380px;
+  height: 50px;
+}
