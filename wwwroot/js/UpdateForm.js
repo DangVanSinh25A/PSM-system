@@ -112,10 +112,8 @@ fetch("https://api2-pnv.bluejaypos.vn/api/additional")
 .then((response) => response.json())
 .then((data) => {
   const additionals = data.value;
-  // Lấy phần tử ul để thêm các checkbox vào
   const ulElement = document.getElementById('addtional');
-  
-  // Xóa tất cả các phần tử li hiện có (nếu cần)
+
   ulElement.innerHTML = '';
   
   // Tạo và thêm các phần tử li mới vào ul
@@ -151,7 +149,7 @@ fetch("https://api2-pnv.bluejaypos.vn/api/additional")
       .then((response) => response.json())
       .then((data) => {
         const ratePlan = data.ratePlans[0].ratePlan;
-        // console.log(ratePlan);
+        console.log(ratePlan);
 
         document.getElementById("name").value = ratePlan.name;
         document.getElementById("price").value = ratePlan.price;
