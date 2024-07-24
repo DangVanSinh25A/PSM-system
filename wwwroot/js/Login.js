@@ -46,7 +46,7 @@ async function submitForm(event) {
     const data = await response.json();
     console.log(data);
 
-
+    
     sessionStorage.setItem("hotelId", data.hotelId);
     var hotelId = sessionStorage.getItem("hotelId");
 
