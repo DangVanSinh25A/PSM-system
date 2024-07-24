@@ -36,3 +36,23 @@ optionsList.forEach((option) => {
   option.addEventListener("keyup", handler);
   option.addEventListener("click", handler);
 });
+
+
+//https://api2-pnv.bluejaypos.vn/home
+
+// https://api2-pnv.bluejaypos.vn/api/special/rate-plan
+// POST
+
+// {
+//     "RatePlanId": 17,
+//     "DayStart": "2026-08-01",
+//     "DayEnd": "2026-09-01",
+//     "Price": "500",
+//     "SpecialDay": [
+//         "2026-08-04",
+//         "2026-08-11",
+//         "2026-08-18",
+//         "2026-08-25",
+//         "2026-09-01"
+//     ]
+// }
