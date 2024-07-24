@@ -150,7 +150,7 @@ function populateOccupancyLimitDropdown(capacity) {
 function populateDropdown(elementId, data){
   
   const dropdown = document.getElementById(elementId);
-  dropdown.innerHTML = '<option selected>Choose...</option>';
+  dropdown.innerHTML = '';
   console.log(data);
   data["value"].forEach(item => {
     const option = document.createElement("option");

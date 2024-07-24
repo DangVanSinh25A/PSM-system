@@ -37,34 +37,34 @@
             <div class="row">
                 <div class="col">
                     <label for="name"><b>Name*</b></label>
-                    <input type="text" class="form-control" placeholder="Rate plan name" id="name">
+                    <input type="text" class="form-control" placeholder="Rate plan name" id="name" required>
                 </div>
                 <div class="col">
                     <label for="price"><b>Price*</b></label>
-                    <input type="text" class="form-control" placeholder="Price" id="price">
+                    <input type="number" class="form-control" placeholder="Price" id="price" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="dayStart"><b>Date Start*</b></label>
-                    <input type="date" class="form-control" id="dayStart">
+                    <input type="date" class="form-control" id="dayStart" required>
                 </div>
                 <div class="col">
                     <label for="dayEnd"><b>Date End*</b></label>
-                    <input type="date" class="form-control" id="dayEnd">
+                    <input type="date" class="form-control" id="dayEnd" required>
                 </div>
             </div>
             <div class="service">
                 <div>
                     <label><b>Room Type*</b></label>
-                    <select class="form-select" id="roomType">
+                    <select class="form-select" id="roomType" required>
                         <option selected>Loading...</option>                    
                     </select>
                 </div>
                 <div>
                     <label><b>Occupancy Limit*</b></label>
-                    <select class="form-select" id="occupancyLimit">
-                        <option selected>Loading...</option>                    
+                    <select class="form-select" id="occupancyLimit" required>
+                        @* <option selected>Loading...</option>                     *@
                     </select>
                     @* <input type="text" class="form-control" placeholder="Occupancy Limit" id="occupancyLimit">               *@
                 </div> 
@@ -73,14 +73,14 @@
             <div class="service">
                 <div>
                     <label><b>Cancle Policy*</b></label>
-                    <select class="form-select" id="cancelPolicy">
-                        <option selected>Loading...</option>                    
+                    <select class="form-select" id="cancelPolicy" required>
+                        @* <option selected>Loading...</option>                     *@
                     </select>
                 </div>
                 <div>
                     <label><b>Payment Constraint*</b></label><br>
-                    <select class="form-select" id="paymentContraint">
-                        <option selected>Loading...</option>                    
+                    <select class="form-select" id="paymentContraint" required>
+                        @* <option selected>Loading...</option>                     *@
                     </select>
                 </div>
 
