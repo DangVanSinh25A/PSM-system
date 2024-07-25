@@ -30,19 +30,19 @@ function formatDate(date) {
 
 
 //get data
-let rateId = sessionStorage.getItem('rateId') || 3;
-let startDate = sessionStorage.getItem('startDate') || new Date("2024-07-26");
+let rateId = sessionStorage.getItem('rateId');
+let startDate = sessionStorage.getItem('startDate');
 const startDateElement = document.getElementById("date-start-info");
 startDateElement.textContent = formatDate(startDate);
 
-let endDate = sessionStorage.getItem('endDate') ||  new Date("2024-07-30");
+let endDate = sessionStorage.getItem('endDate');
 const endDateElement = document.getElementById("date-end-info");
 endDateElement.textContent = formatDate(endDate);
 
 console.log("startDate.textContent", startDate.textContent);
 async function getPrice() {
   try {
-      const response = await fetch(`https://api2-pnv.bluejaypos.vn/api/rate-plan/2`);
+      const response = await fetch(`https://api2-pnv.bluejaypos.vn/api/rate-plan/${rateId}`);
       const data = await response.json();
       console.log('data', data);
       let price =  data.ratePlans[0].ratePlan.price
