@@ -107,49 +107,60 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching cancel policies:", error);
     });
 
-  // Fetch dữ liệu từ API
-fetch("https://api2-pnv.bluejaypos.vn/api/additional")
-.then((response) => response.json())
-.then((data) => {
-  const additionals = data.value;
-  const ulElement = document.getElementById('addtional');
-
-  ulElement.innerHTML = '';
-  
-  // Tạo và thêm các phần tử li mới vào ul
-  additionals.forEach((additional, index) => {
-    // Tạo thẻ li
-    const li = document.createElement('li');
-    
-    // Tạo checkbox
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.id = `checkbox-${index}`;
-    
-    // Tạo label
-    const label = document.createElement('label');
-    label.setAttribute('for', checkbox.id);
-    label.textContent = additional.name;
-    
-    // Thêm checkbox và label vào li
-    li.appendChild(checkbox);
-    li.appendChild(label);
-    
-    // Thêm li vào ul
-    ulElement.appendChild(li);
-  });
-})
-.catch((error) => {
-  console.error("Error fetching data:", error);
-});
-
   // ===================== Display data from RateId =====================
+
+  let additionalNames = [];
+
   if (rateId) {
     fetch(`https://api2-pnv.bluejaypos.vn/api/rate-plan/${rateId}`)
       .then((response) => response.json())
       .then((data) => {
+        const additional = data.ratePlans[0].additional;
+        const additionalNames = additional.map((item) => item.name);
+        console.log('additionalNames',additionalNames);
+
+        fetch("https://api2-pnv.bluejaypos.vn/api/additional")
+          .then((response) => response.json())
+          .then((data) => {
+            const additionals = data.value;
+            const ulElement = document.getElementById("addtional");
+
+            ulElement.innerHTML = "";
+
+            additionals.forEach((additional, index) => {
+              const li = document.createElement("li");
+
+              const checkbox = document.createElement("input");
+              checkbox.type = "checkbox";
+              checkbox.id = `checkbox-${index}`;
+
+              if (additionalNames.includes(additional.name)) {
+                checkbox.checked = true;
+              }
+
+              const label = document.createElement("label");
+              label.setAttribute("for", checkbox.id);
+              label.textContent = additional.name;
+
+              li.appendChild(checkbox);
+              li.appendChild(label);
+
+              ulElement.appendChild(li);
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data from additional API:", error);
+          });
+
+        console.log("additional", additional);
+
         const ratePlan = data.ratePlans[0].ratePlan;
-        console.log(ratePlan);
+
+        const channelId = ratePlan.channel.id;
+        sessionStorage.setItem("channelId", channelId);
+
+        const storedChannelId = sessionStorage.getItem("channelId");
+        console.log("storedChannelId", storedChannelId);
 
         document.getElementById("name").value = ratePlan.name;
         document.getElementById("price").value = ratePlan.price;
@@ -193,8 +204,75 @@ fetch("https://api2-pnv.bluejaypos.vn/api/additional")
           paymentSelect.value = ratePlan.paymentConstraint.id;
         }
         // =========== Display data in additional ==============
-       
+
+        const selectedValueSpan = document.querySelector(".selected-value");
+
+        if (selectedValueSpan) {
+          if (additional.length === 0) {
+            selectedValueSpan.textContent = "No additional";
+          } else {
+            const additionalNames = additional.map((item) => item.name);
+            selectedValueSpan.textContent = additionalNames.join(", ");
+          }
+        }
       })
       .catch((error) => console.error("Error fetching rate plan:", error));
+  }
+});
+
+// ================= Handle upadte =============
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  console.log('successfull click ');
+
+  const formData = new FormData(form);
+  
+  const rateId = sessionStorage.getItem("id");
+  console.log(rateId);
+
+
+  let objData = {
+    rateId: sessionStorage.getItem("id"),
+    hotelId: sessionStorage.getItem("hotelId"),
+    channelId: sessionStorage.getItem("channelId"),
+    name: formData.get("name") || "",
+    price: formData.get("price") || "",
+    timeApplied: {
+      start: moment(formData.get("timeAppliedStart")).format() || "",
+      end: moment(formData.get("timeAppliedEnd")).format() || "",
+    },
+    occupancyLimit: formData.get("occupancyLimit") || "",
+    paymentConstraint: formData.get("paymentConstraint") || "",
+    roomTypeId: formData.get("roomType"),
+    cancelPolicyId: formData.get("cancelPolicy") || "",
+    status: formData.get("status") || "",
+    addtionalId: Array.from(formData.getAll("addtional")),
+  };
+  console.log("addtionalId:", objData.addtionalId);
+
+  try {
+    let response = await fetch(
+      "https://api2-pnv.bluejaypos.vn/api/rate-plan/update",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(objData),
+      }
+    );
+
+    window.location.href = `/detail${sessionStorage.getItem("id")}`;
+
+    if (!response.ok) {
+      let errorData = await response.json();
+      throw new Error(`API Error: ${errorData.message || "Unknown error"}`);
+    }
+
+    let data = await response.json();
+    listRatePlan = data;
+    console.log("API Response:", data);
+  } catch (error) {
+    console.error("Error fetching rate plans:", error);
   }
 });

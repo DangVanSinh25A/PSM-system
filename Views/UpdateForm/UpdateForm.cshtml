@@ -38,27 +38,27 @@
             <div class="row">
                 <div class="col">
                     <label for="name"><b>Name*</b></label>
-                    <input type="text" class="form-control" id="name"  placeholder="Rate plan name">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Rate plan name">
                 </div>
                 <div class="col">
                     <label for="price"><b>Price*</b></label>
-                    <input type="text" class="form-control" id="price" placeholder="Price">
+                    <input type="text" class="form-control" id="price" name="price" placeholder="Price">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label for="dayStart"><b>Date Start*</b></label>
-                    <input type="date" id="dayStart" class="form-control">
+                    <input type="date" id="dayStart" name="dayStart" class="form-control">
                 </div>
                 <div class="col">
                     <label for="dayEnd"><b>Date End*</b></label>
-                    <input type="date" id="dayEnd" class="form-control">
+                    <input type="date" id="dayEnd"  name="dayEnd" class="form-control">
                 </div>
             </div>
             <div class="service">
                 <div>
                     <label><b>Room Type*</b></label>
-                    <select class="form-select"  id="roomType">
+                    <select class="form-select" id="roomType" name="roomType">
                         <option selected id="roomType">Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -67,14 +67,14 @@
                 </div>
                 <div>
                     <label><b>Occupancy Limit*</b></label>
-                    <input type="text" class="form-control" id="occupancyLimit" placeholder="Occupancy">
+                    <input type="text" class="form-control" id="occupancyLimit" name="occupancyLimit"placeholder="Occupancy">
                 </div>
 
             </div>
             <div class="service">
                 <div>
                     <label><b>Cancle Policy*</b></label>
-                    <select class="form-select" id="cancelPolicy">
+                    <select class="form-select" id="cancelPolicy" name="cancelPolicy">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -83,7 +83,7 @@
                 </div>
                 <div>
                     <label><b>Payment Constraint*</b></label><br>
-                    <select class="form-select" id="paymentConstraint">
+                    <select class="form-select" id="paymentConstraint" name="paymentConstraint">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -99,20 +99,20 @@
                         <span class="selected-value">Open this select menu</span>
                         <span class="arrow"></span>
                     </button>
-                    <ul class="select-dropdown" id="addtional">
+                    <ul class="select-dropdown" id="addtional" name="addtional">
                         <li>
-                            <input type="checkbox" id="breakfast" />
-                            <label for="breakfast">Breakfast</label> 
+                            <input type="checkbox" id="breakfast"  name="addtional"/>
+                            <label for="breakfast">Breakfast</label>
                         </li>
                         <li>
-                            <input type="checkbox" id="dinner" />
+                            <input type="checkbox" id="dinner"  name="addtional" />
                             <label for="dinner">Dinner</label>
                         </li>
                     </ul>
                 </div>
                 <div>
                     <label><b>Status*</b></label><br>
-                    <select class="form-select" id="status">
+                    <select class="form-select" id="status" name="status">
                         @* <option selected>Choose...</option> *@
                         <option value="1">Active</option>
                         <option value="2">Inactive</option>
