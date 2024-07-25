@@ -1,3 +1,7 @@
+@* @{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}    *@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,83 +20,88 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
-    <div class="content-main">
-        <div class="preivous">
-            <button>
-                <i class="fa-solid fa-arrow-left"></i>
-                <span class="title">Previous</span>
-            </button>
-            <button>
-                <i class="fa-solid fa-arrow-right"></i>
-                <span class="title">Next</span>
-            </button>
+    <div class="container">
+      <button class="previous-btn" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i> Previous
+        </button>
+        <div class="titleContainer">
+            <h3 style="color: red;">Create</h3>
+            <h3>special Rate Plan</h3>
         </div>
-        <h1 class="create">Create</h1>
-        <h1>Special Rate Plan</h1>
-        <form class="form">
+        <div class="form-container" id="form">
             <div class="row">
-                <div class="col">
-                    <label for="dayStart"><b>Date Start*</b></label>
-                    <input type="date" class="form-control">
+                <div class="form-group">
+                    <label for="date-start">Date start*</label>
+                    <div class="info">
+                        <p id="date-start-info"></p>
+                    </div>
                 </div>
-                <div class="col">
-                    <label for="dayEnd"><b>Date End*</b></label>
-                    <input type="date" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="price"><b>Special Price*</b></label>
-                    <input type="text" class="form-control" placeholder="Price">
-                </div>
-                <div class="col">
-                    <div class="custom-select">
-                        <label><b>Day*</b></label>
-                        <button class="select-button">
-                            <span class="selected-value">Open this select menu</span>
-                            <span class="arrow"></span>
-                        </button>
-                        <ul class="select-dropdown">
-                            <li>
-                                <input type="checkbox" id="monday" />
-                                <label for="monday">Monday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="tuesday" />
-                                <label for="tuesday">Tuesday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="wednesday" />
-                                <label for="wednesday">Wednesday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="thursday" />
-                                <label for="thursday">Thursday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="friday" />
-                                <label for="friday">Friday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="saturday" />
-                                <label for="saturday">Saturday</label>
-                            </li>
-                            <li>
-                                <input type="checkbox" id="sunday" />
-                                <label for="sunday">Sunday</label>
-                            </li>
-                        </ul>
-
+                <div class="form-group">
+                    <label for="date-end">Date end*</label>
+                    <div class="info">
+                        <p id="date-end-info"></p>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="createBtn">Create</button>
-        </form>
+            <div class="row">
+                <div class="form-group">
+                    <label for="days">Days*</label>
+                    <div class="multipleSelection">
+                        <div class="selectBox" onclick="showCheckboxes()">
+                            <select id="selectedOptions">
+                                <option>Select options</option>
+                            </select>
+                            <div class="overSelect"></div>
+                        </div>
+                        <div id="checkBoxes">
+                            <label for="Monday">
+                                <input type="checkbox" id="monday" value="Monday" onclick="updateSelectedOptions()" /> Monday
+                            </label>
+                            <label for="Tuesday">
+                                <input type="checkbox" id="tuesday" value="Tuesday" onclick="updateSelectedOptions()" /> Tuesday
+                            </label>
+                            <label for="Wednesday">
+                                <input type="checkbox" id="wednesday" value="Wednesday" onclick="updateSelectedOptions()" /> Wednesday
+                            </label>
+                            <label for="thursday">
+                                <input type="checkbox" id="thursday" value="Thursday" onclick="updateSelectedOptions()" /> Thursday
+                            </label>
+                            <label for="friday">
+                                <input type="checkbox" id="Friday" value="Friday" onclick="updateSelectedOptions()" /> Friday
+                            </label>
+                            <label for="saturday">
+                                <input type="checkbox" id="Saturday" value="Saturday" onclick="updateSelectedOptions()" /> Saturday
+                            </label>
+                            <label for="sunday">
+                                <input type="checkbox" id="Sunday" value="Sunday" onclick="updateSelectedOptions()" /> Sunday
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="date-end">Price*</label>
+                    @* <div class="info"></div> *@
+                    <input type="number" placeholder="Enter special price" id="price" min="0"   oninput="this.value = Math.abs(this.value)" />
+                </div> 
+            </div>     
+            <div class="row">
+                @* <p> asdf</p> *@
+                <button type="submit" id = "submit" class="next-btn">Next</button>
+            </div>
+        </div>
+
+        
+        
 
     </div>
+
+
     <script src="~/js/SpecialCreate.js"></script>
 </body>
 
