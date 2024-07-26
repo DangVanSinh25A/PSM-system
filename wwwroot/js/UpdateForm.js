@@ -233,7 +233,7 @@ form.addEventListener("submit", async function (event) {
 
   let objData = {
     rateId: sessionStorage.getItem("id"),
-    hotelId: sessionStorage.getItem("hotelId"),
+    // hotelId: sessionStorage.getItem("hotelId"),
     channelId: sessionStorage.getItem("channelId"),
     name: formData.get("name") || "",
     price: formData.get("price") || "",
